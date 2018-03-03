@@ -1,8 +1,10 @@
+console.log("Content script loaded!!");
+// document.addEventListener("DOMContentLoaded", context);
+document.onload = context();
+function context(){
+  // console.log("Adding context");
+  context = prompt("Enter Context");
+  console.log("New context added!!  "+context);
+  var sending = browser.runtime.sendMessage({url : window.location.href, context:context});
 
-document.addEventListener("DOMContentLoaded", context);
-
-function context(requestDetails){
-  newFilter = prompt("Enter Context :");
-  console.log("New filter added!!  "+newFilter);
-  var sending = browser.runtime.sendMessage( {changed : true, context:context} );
 }

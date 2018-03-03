@@ -6,7 +6,7 @@
 
   "background": {
     "scripts": [
-      "backgorund.js",
+      "background.js"
     ]
   },
 
@@ -21,7 +21,8 @@
     "unlimitedStorage",
     "notifications",
     "menus",
-    "activeTab"
+    "activeTab",
+    "privacy"
   ],
   "content_scripts": [
   {
