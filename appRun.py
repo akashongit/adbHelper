@@ -2,6 +2,7 @@
 import os
 from random import *
 from flask import Flask, request
+import requests,bs4
 # import pandas as pd
 
 app = Flask(__name__)
@@ -13,7 +14,11 @@ def findcontext():
 		url = str(request.args.get('url'))
 		context = str(request.args.get('context'))
 		fd = open("./title.csv","a")
-		line = url+","+context+"\n"
+		r = requests.get(url)
+		data = r.Context
+		soup = bs4.BeautifulSoup(data,"lxml")
+		title = soup.title.text
+		line = title+","+context+"\n"
 		fd.write(line)
 		print(url)
 		print(context)
