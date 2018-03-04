@@ -15,7 +15,7 @@ def findcontext():
 		context = str(request.args.get('context'))
 		fd = open("./title.csv","a")
 		r = requests.get(url)
-		data = r.Context
+		data = r.text
 		soup = bs4.BeautifulSoup(data,"lxml")
 		title = soup.title.text
 		line = title+","+context+"\n"
